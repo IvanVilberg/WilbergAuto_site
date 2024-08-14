@@ -1,0 +1,100 @@
+<!DOCTYPE html >
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilberg Auto</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css style -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body class="body">
+
+    <header class="header">
+        <a th:href="@{http://localhost:8080/home}">
+            <img src="images/other/logo.svg" class="main-logo" width="50" alt="">
+        </a>
+        <ul class="navigation-bar">
+            <li><a th:href="@{http://localhost:8080/catalogue}">Мануалы</a></li>
+            <li><a th:href="@{http://localhost:8080/detail}">Запчасти</a></li>
+            <li><a href="">Аккаунт</a></li>
+        </ul>
+
+        <div class="minimize-menu">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <script type="text/javascript" src="js/open_menu.js"></script>
+    
+    <main>  
+
+        <section class="main-information">
+            <div class="information">
+                <p><strong>Wilberg Auto</strong> - Ваш надежный гид в мире автосервиса и техобслуживания! 
+                Здесь вы найдете подробные интструкций по ремонту и обслуживанию 
+                авто, а так же советы, оставленные другими пользователями.</p>
+                
+                <p><br>Как поменять рулевую тягу? Как установить ремень ГРМ? 
+                Какой код у фары в каталоге? На все эти и множество других 
+                вопросов вы найдете ответ в наших мануалах!</p>
+            </div>
+                
+
+            
+            <ul class="auth-button-group">
+                <li>
+                    <a th:href="@{/login}" class="auth-button" type="button">Войти</a>
+                </li>
+                <li>
+                    <a class="register-button" th:href="@{/register}">Зарегистрироваться</a>
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="qr-code">
+            <h2>Android</h2>
+            <img src="images/other/qr.png" width="150" alt="">
+        </section>
+
+        <section class="accord">
+            <img src="images/auto/accord 7 wagon.jpg" width="450" alt="">
+            <p>Огромное колличество мануалов по самым разным авто, от Японии до Америки</p>
+        </section>
+
+        <section class="front-panel">
+            <p>Не знаете что обозначают те или  иные символы на приборной панели 
+                в разны авто? Расскажем!</p>
+            <img src="images/other/crown_front_panel.jpg" width="450" alt="">
+        </section>
+
+        <section class="engine">
+            <img src="images/other/w12.jpg" width="450" alt="">
+            <p>Расскажем как перебрать даже такой движок!</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <!-- <div class="footer-logo">
+            <div class="block-logo">
+                <h2>Wilberg Auto</h2>
+            </div>  
+        </div>
+        
+        <img src="" alt=""> -->
+        <div class="helper-footer">
+            <a th:href="@{/report}">Сообщить о ошибке</a> 
+        </div>
+        
+    </footer>
+</body>
+</html>

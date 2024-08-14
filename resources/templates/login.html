@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA запчасти</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css style -->
+    <link rel="stylesheet" th:href="@{http://localhost:8080/css/registerLogin.css}">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+
+    <header class="header">
+        <a th:href="@{http://localhost:8080/home}">
+            <img src="images/other/logo.svg" class="main-logo" width="50" alt="">
+        </a>
+        <ul class="navigation-bar">
+            <li><a th:href="@{http://localhost:8080/catalogue}">Мануалы</a></li>
+            <li><a th:href="@{http://localhost:8080/detail}">Запчасти</a></li>
+            <li><a href="">Аккаунт</a></li>
+        </ul>
+
+        <div class="minimize-menu">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+<script type="text/javascript" src="js/open_menu.js"></script>
+
+    <main>
+        <h1 class="main-text">Авторизация</h1>
+        <form class="create-form" th:action="@{/login}" method="post">
+            <ul>
+                <li>
+                    <label>Логин:</label>
+                    <input type="text" name="login" required/>
+                </li>
+                <li>
+                    <label>Пароль:</label>
+                    <input type="password" name="password" required/>
+                </li>
+                <li>
+                    <button class="button-submit" type="submit">Войти</button>
+                </li>
+            </ul>
+            
+        </form>
+    </main>
+    
+    <footer class="footer">
+
+        <!-- <div class="footer-logo">
+            <div class="block-logo">
+                <h2>Wilberg Auto</h2>
+            </div>  
+        </div>
+        
+        <img src="" alt=""> -->
+        <div class="helper-footer">
+            <a th:href="@{/report}">Сообщить о ошибке</a> 
+        </div>
+        
+    </footer>
+
+</body>
+</html>

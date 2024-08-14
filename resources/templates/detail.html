@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA запчасти</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css style -->
+    <link rel="stylesheet" th:href="@{http://localhost:8080/css/detail.css}">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <a th:href="@{http://localhost:8080/home}">
+            <img src="images/other/logo.svg" class="main-logo" width="50" alt="">
+        </a>
+        <ul class="navigation-bar">
+            <li><a th:href="@{http://localhost:8080/catalogue}">Мануалы</a></li>
+            <li><a th:href="@{http://localhost:8080/detail}">Запчасти</a></li>
+            <li><a href="">Аккаунт</a></li>
+        </ul>
+
+        <div class="minimize-menu">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <script type="text/javascript" src="js/open_menu.js"></script>
+
+
+    <main>
+        <a  class="create-button" href="/detail/create">Создать деталь</a>        
+
+        <form action="#" th:action="@{detail/search}" class="detail-textbox" th:object="${detail}" method="post">
+            <h2>Артикул детали</h2>
+            <input type="text" th:field="*{article}">
+            <p>Не менее 8 символов</p>
+            <button class="button-submit" type="submit">Найти</button>
+
+            <div class="detail-image">
+                <h2 th:text="${detail.name}"></h2>
+                <img th:src="@{'/images/details/' + ${detail.image}}" width="400" height="400" alt="">
+            </div>            
+    
+            <div class="flags">
+
+                <!-- russia -->
+                <img src="/images/flags/russia.png" width="60" height="40" alt="">
+                <p th:text="${detail.russiaPrice} + ' руб.'"></p>
+            
+                <!-- germany -->
+                <img src="/images/flags/germany.png" width="60" height="40" alt="">
+                <p th:text="${detail.germanyPrice} + ' руб.'"></p>
+                
+                <!-- japan -->
+                <img src="/images/flags/japan.png" width="60" height="40" alt="">
+                <p th:text="${detail.japanPrice} + ' руб.'" ></p>
+            
+                <!-- korea -->
+                <img src="/images/flags/korea.jpg" width="60" height="40" alt="">
+                <p th:text="${detail.koreaPrice} + ' руб.'"></p>
+            
+            </div>
+            
+        </form>
+
+        
+        
+    </main>
+
+    <footer class="footer">
+
+        <!-- <div class="footer-logo">
+            <div class="block-logo">
+                <h2>Wilberg Auto</h2>
+            </div>  
+        </div>
+        
+        <img src="" alt=""> -->
+
+        <div class="helper-footer">
+            <a href="report.html">Сообщить о ошибке</a> 
+        </div>
+        
+    </footer>
+
+</body>
+</html>

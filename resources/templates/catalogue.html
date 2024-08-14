@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA мануалы</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css style -->
+    <link rel="stylesheet" th:href="@{css/catalogue.css}">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <a th:href="@{http://localhost:8080/home}">
+            <img src="images/other/logo.svg" class="main-logo" width="50" alt="">
+        </a>
+        <ul class="navigation-bar">
+            <li><a th:href="@{http://localhost:8080/catalogue}">Мануалы</a></li>
+            <li><a th:href="@{http://localhost:8080/detail}">Запчасти</a></li>
+            <li><a href="">Аккаунт</a></li>
+        </ul>
+
+        <div class="minimize-menu">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <script type="text/javascript" src="js/open_menu.js"></script>
+
+    <main>
+        <a type="button" class="create-button" href="/catalogue/create">Создать авто</a>
+        <div class="list-auto">
+            <div th:each="entry : ${carsByBrand}">
+                <h2 th:text="${entry.key}"></h2>
+                <ul>
+                    <li th:each="car : ${entry.value}">
+                        <img th:src="@{'/images/auto/' + ${car.image}}" width="250" height="190" alt="">
+                        <a class="text-model" th:href="@{'/car/' + ${car.id} + '/manual'}" th:text="${car.model + ' ' + car.carBody}"></a>
+                        <div class="button-group">
+                            <a th:href="@{catalogue/edit(id=${car.id})}" class="edit-button" type="button">Редактировать</a>
+                            <a class="delete-button" type="button" th:href="@{/catalogue/delete(id=${car.id})}"
+                            onclick="return confirm('Удалить авто?')">Удалить</a>                         
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    
+
+    <footer class="footer">
+
+        <!-- <div class="footer-logo">
+            <div class="block-logo">
+                <h2>Wilberg Auto</h2>
+            </div>  
+        </div>
+        
+        <img src="" alt=""> -->
+        <div class="helper-footer">
+            <a href="report.html">Сообщить о ошибке</a> 
+        </div>
+        
+    </footer>
+</body>

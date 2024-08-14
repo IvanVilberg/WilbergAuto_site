@@ -1,0 +1,90 @@
+<!DOCTYPE html >
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA мануалы</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css style -->
+    <link rel="stylesheet" type="text/css" th:href="@{http://localhost:8080/css/editCar.css}">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <a th:href="@{http://localhost:8080/home}">
+            <img src="images/other/logo.svg" class="main-logo" width="50" alt="">
+        </a>
+        <ul class="navigation-bar">
+            <li><a th:href="@{http://localhost:8080/catalogue}">Мануалы</a></li>
+            <li><a th:href="@{http://localhost:8080/detail}">Запчасти</a></li>
+            <li><a href="">Аккаунт</a></li>
+        </ul>
+
+        <div class="minimize-menu">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <script type="text/javascript" src="js/open_menu.js"></script>
+
+    <main>
+        <h2 class="main-text">Редактирование авто</h2>
+        <form class="create-form" action="" method="post" enctype="multipart/form-data" th:object="${carDto}">
+            <ul>
+                <li>
+                    <label for="brand">Марка</label>
+                    <input type="text" id="brand" th:field="*{brand}">
+                    <p th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Ошибка</p>
+                </li>
+                <li>
+                    <label for="model">Модель</label>
+                    <input type="text" id="model" th:field="*{model}">
+                    <p th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Ошибка</p>
+                </li>
+                <li>
+                    <label for="carBody">Кузов</label>
+                    <input type="text" id="carBody" th:field="*{carBody}">
+                    <p th:if="${#fields.hasErrors('carBody')}" th:errors="*{carBody}">Ошибка</p>
+                </li>
+                <li>
+                    <label for="imageFile">Фото</label>
+
+                    <img class="current-image" th:src="@{'/images/auto/' + ${car.image}}" alt="" width="250" height="190">
+
+                    <input type="file" id="imageFile" th:field="*{imageFile}">
+                    <p th:if="${#fields.hasErrors('imageFile')}" th:errors="*{imageFile}">Ошибка</p>
+                </li>
+                <li>
+                    <button class="button-submit" type="submit">Подтвердить изменения</button>
+                </li>
+                <li>
+                    <a href="/catalogue" class="button-cancel" role="button">Отмена</a>
+                </li>
+            </ul>
+        </form>
+        
+    </main>
+    
+    
+
+    <footer class="footer">
+
+        <!-- <div class="footer-logo">
+            <div class="block-logo">
+                <h2>Wilberg Auto</h2>
+            </div>  
+        </div>
+        
+        <img src="" alt=""> -->
+        <div class="helper-footer">
+            <a href="report.html">Сообщить о ошибке</a> 
+        </div>
+        
+    </footer>
+</body>
